@@ -7,7 +7,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 import os
 import json
-from algoliasearch.search_client import SearchClient
 from itsdangerous import URLSafeTimedSerializer
 from flask_mail import Message, Mail
 from flask_caching import Cache

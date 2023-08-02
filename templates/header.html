@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avidya - Online Clothing Store</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
+<!--    <link id="snipcart-theme" type="text/css" href="https://app.snipcart.com/themes/base/snipcart.css" rel="stylesheet" />-->
+<!--    <link type="text/css"  href="{{ url_for('static', filename='snipcart.css') }}" rel="stylesheet /">-->
+</head>
+<body>
+    <section class="hero">
+        <nav>
+            <ul>
+            <li style="margin-bottom: 15%;"><a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='images/Spak-removebg-preview.png') }}" width="100px"></a></li>
+            </ul>
+            <ul>
+                <li style="margin-bottom: 23%;"><a class="snipcart-checkout"><i class="fa-solid fa-cart-shopping fa-xl" style="color: #fcfcfc;"></i></a></li>
+                <li role="list" dir="rtl">
+                    <a href="#" aria-haspopup="listbox"><i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i></a>
+                    <ul role="listbox">
+                        {% if not current_user.is_authenticated: %}
+                      <li><a href="{{url_for('signup')}}">Sign Up</a></li>
+                      <li><a href="{{url_for('login')}}">Login</a></li>
+                        {% else: %}
+                        <li><a href="{{url_for('logout')}}">Logout</a></li>
+                        {% endif %}
+                        {% if current_user.id == 1: %}
+                        <li><a href="{{url_for('add')}}">Add A New Product</a></li>
+                        {% endif %}
+
+                    </ul>
+                </li>
+            <!-- <li><a href="#"></a></li> -->
+            </ul>
+        </nav>

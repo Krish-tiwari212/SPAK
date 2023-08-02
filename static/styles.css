@@ -1,0 +1,134 @@
+.hero {
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #394046;
+    background-image: url("images/Untitled\ design\ \(1\).png");
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 5%;
+  }
+.prod {
+    position: relative;
+    top: -80px;
+    left: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #394046;
+    background-image: url("images/prod.png");
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 5%;
+}
+hgroup{
+    margin-top: 14%;
+    margin-bottom: 20%;
+    margin-left: 10%;
+}
+hgroup h1{
+    font-family: "aileron", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 2.6rem;
+}
+hgroup h4{
+    margin-top: 3%;
+    margin-left: 60%;
+}
+header img{
+    margin-top: 5%;
+    margin-left: 50%;
+    width: 300px;
+} 
+@media (max-width: 1113px) {
+    hgroup h1{
+        font-size: 2.4rem;
+    }
+}
+@media (max-width: 1043px) {
+    hgroup h1{
+        font-size: 2.2rem;
+    }
+}
+@media (max-width: 992px) {
+    .hero{
+        text-align: center;
+    }
+    header img{
+        width: 200px;
+        margin-left: 40%;
+    }
+    hgroup h1{
+        font-size: 2.9rem;
+    }
+    hgroup h4{
+        margin-left: 30%;
+    }
+    hgroup{
+        margin-top: 10%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+    .prod .card{
+        margin-left: 20%;
+    }
+}
+@media (max-width: 602px){
+    hgroup h1{
+        font-size: 2.4rem;
+    }
+    .prod h2{
+        margin-left: 15%;
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 505px){
+    hgroup h1{
+        font-size: 1.7rem;
+    }
+    header img{
+        margin-left: 30%;
+    }
+    .prod .card{
+        margin-left: 15%;
+    }
+}
+@media (max-width: 404px){
+    hgroup h1{
+        font-size: 1.5rem;
+    }
+    header img{
+        margin-left: 30%;
+        width: 150px;
+        margin-bottom: 15%;
+    }
+}
+@media (max-width:415px){
+    .prod .card{
+        margin-left: 0%;
+    }
+}
+
+.prod h2{
+    margin-top: 50px;
+    font-family: "aileron", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px -30px #212121;
+    margin: 20px;
+}
+.card > img {
+    border-radius: 10px;
+}
+.right {
+    text-align: end;
+}

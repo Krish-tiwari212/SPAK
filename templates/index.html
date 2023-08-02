@@ -1,0 +1,79 @@
+{% include 'header.html' %}
+        <header class="grid">
+            <hgroup>
+                <h1>“You can never be<br>overdressed or<br>overeducated.”</h1>
+                <h4>-Oscar Wilde</h4>
+            </hgroup>
+            <img src="{{ url_for('static', filename='images/girl.png') }}">
+        </header>
+    </section>
+    <section class="prod">
+        <nav>
+            <ul>
+            <h2>Featured Products</h2>
+            </ul>
+            <ul>
+            <li><a href="#"><i class="fa-solid fa-magnifying-glass fa-xl" style="color: #ffffff;"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-sort fa-xl" style="color: #ffffff;"></i></a></li>
+            </ul>
+        </nav>
+        <div class="grid">
+            {% for o in l: %}
+            <div class="card">
+                <div class="wrapper" style="margin-left: 10px;">
+                    <div class="container">
+                      <div class="top" style="background: url('{{o.image_url}}') no-repeat center center; height: 80%;
+                      width:100%; 
+                  -webkit-background-size: 100%;
+                  -moz-background-size: 100%;
+                  -o-background-size: 100%;
+                  background-size: 100%;"></div>
+                      <div class="bottom">
+                        <div class="left">
+                          <div class="details" style="padding: 7px; padding-top: 10px;">
+                            <h1 style="color:white; font-size: 15px">{{o.name}}</h1>
+                            <p style="color: white;">₹ {{o.price}}</p>
+                          </div>
+                          <div class="buy snipcart-add-item"
+  data-item-id="{{o.name}}"
+  data-item-price="{{o.price}}"
+  data-item-description="{{o.description}}"
+  data-item-image="{{o.image_url}}"
+  data-item-name="{{o.name}}" data-item-custom1-name="Size"
+  data-item-custom1-options="S|M|L|XL|XXL"><i class="material-icons">add_shopping_cart</i></div>
+                        </div>
+                        <div class="right">
+                          <div class="done"><i class="material-icons">done</i></div>
+                          <div class="details" style="padding: 15px; padding-top: 5px;">
+                            <h1>{{o.name}}</h1>
+                            <p style="font-size: medium;">Added to your cart</p>
+                          </div>
+                          <div class="remove"><i class="material-icons">clear</i></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="inside">
+                      <div class="icon"><i class="material-icons">info_outline</i></div>
+                      <div class="contents">
+                        <h4>{{o.description}}</h4>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="container">
+        <article class="grid">
+              <div>
+                <h1>Subscribe</h1>
+                <form method="post" action="{{url_for('home')}}">
+                   {{ form.csrf_token }}
+                    {{ form.name(**{'placeholder':'First Name' ,'aria-label':'name' ,'autocomplete':'nickname'}) }}
+                    {{ form.email(**{'placeholder':'Email' ,'aria-label':'email' ,'autocomplete':'email'}) }}
+                  <input type="submit" class="contrast"  value="Subscribe">
+                </form>
+              </div>
+        </article>
+    </section>
+    {% include 'footer.html' %}

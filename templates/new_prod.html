@@ -1,0 +1,34 @@
+{% include 'header.html' %}
+
+<style>
+        article div:nth-of-type(2) {
+            display: none;
+            background-color: #374956;
+            background-image: url("https://images.unsplash.com/photo-1609505849320-29530bcb2d26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80");
+            background-position: center;
+            background-size: cover;
+      }
+    </style>
+        <main class="container">
+            <article class="grid">
+              <div>
+                <hgroup>
+                  <h1>Add New Product</h1>
+                    <h2>Add details about the new product here</h2>
+                </hgroup>
+                <form method="POST" action="{{url_for('add')}}">
+                    {{ form.csrf_token }}
+                    {{ form.product_name(**{'placeholder':'Product Name', 'aria-label':'name' ,'autocomplete':'name'}) }}
+                    {{ form.image_url(**{'placeholder':'Enter the Url of the image','aria-label':'url' ,'autocomplete':'url'})}}
+                    {{ form.price(**{'placeholder':'Price of Product (Don\'t add rupee symbol)','aria-label':'price' ,'autocomplete':'price'})}}
+                    {{ form.size(**{'placeholder':'Product Size','aria-label':'size' ,'autocomplete':'size'})}}
+                    {{ form.description(**{'placeholder':'Description of Product','aria-label':'description' ,'autocomplete':'description'})}}
+                    <input type="submit" class="contrast"  value="Add">
+                </form>
+              </div>
+              <div></div>
+            </article>
+        </main>
+    </section>
+
+{% include 'footer.html' %}

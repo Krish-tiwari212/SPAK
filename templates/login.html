@@ -1,0 +1,29 @@
+{% include 'header.html' %}
+        <style>
+        article div:nth-of-type(2) {
+            display: none;
+            background-color: #374956;
+            background-image: url("https://images.unsplash.com/photo-1609505849320-29530bcb2d26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80");
+            background-position: center;
+            background-size: cover;
+      }
+    </style>
+        <main class="container">
+            <article class="grid">
+              <div>
+                <hgroup>
+                  <h1>Log In</h1>
+                  <h2>Log In now to enter the world of Fashion</h2>
+                </hgroup>
+                <form method="POST" action="{{url_for('login')}}">
+                    {{ form.csrf_token }}
+                    {{ form.username(**{'placeholder':'Username' ,'aria-label':'username' ,'autocomplete':'nickname'}) }}
+                    {{ form.password(**{'placeholder':'Password' ,'aria-label':'Password' ,'autocomplete':'current-password'})}}
+                    <input type="submit" class="contrast"  value="Login">
+                </form>
+              </div>
+              <div></div>
+            </article>
+        </main>
+    </section>
+{% include 'footer.html' %}

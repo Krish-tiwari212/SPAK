@@ -40,6 +40,9 @@ cachelib==0.9.0
 certifi==2023.7.22
 colorama==0.4.6
 Flask-Mail==0.9.1
+Flask-Cache==0.13.1
+Flask-Caching==2.0.2
+
 
 
 

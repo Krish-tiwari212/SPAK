@@ -53,8 +53,8 @@ class User(UserMixin, db.Model):
 
 class Product(db.Model):
     __tablename__ = 'product'
-    name = db.Column(db.String(100), primary_key=True)
-    image_url = db.Column(db.String(100), unique=True)
+    name = db.Column(db.String(1000), primary_key=True)
+    image_url = db.Column(db.TEXT, unique=True)
     price = db.Column(db.String(1000))
     size = db.Column(db.String(1000))
     description = db.Column(db.String(1000))

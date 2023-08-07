@@ -7,6 +7,50 @@
             <img src="{{ url_for('static', filename='images/girl.png') }}">
         </header>
     </section>
+    <style>
+        figure {
+  display: grid;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+            width: 80%;
+
+}
+figure > * {
+  grid-area: 1/1;
+  transition: .4s;
+}
+figure figcaption {
+  display: grid;
+  align-items: end;
+  font-family: sans-serif;
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #0000;
+  padding: .75rem;
+  background: var(--c,#0009);
+  clip-path: inset(0 var(--_i,100%) 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  -webkit-mask-clip: text, padding-box;
+  margin: -1px;
+}
+figure:hover figcaption{
+  --_i: 0%;
+}
+figure:hover img {
+  transform: scale(1.2);
+}
+@supports not (-webkit-mask-clip: text) {
+  figure figcaption {
+   -webkit-mask: none;
+   color: #fff;
+  }
+}
+
+    </style>
     <section class="prod">
         <nav>
             <ul>
@@ -17,49 +61,55 @@
             <li><a href="#"><i class="fa-solid fa-sort fa-xl" style="color: #ffffff;"></i></a></li>
             </ul>
         </nav>
-        <div class="grid">
+        <div class="grid container-fluid">
             {% for o in l: %}
-            <div class="card">
-                <div class="wrapper" style="margin-left: 10px;">
-                    <div class="container">
-                      <div class="top" style="background: url('{{o.image_url}}') no-repeat center center; height: 80%;
-                      width:100%; 
-                  -webkit-background-size: 100%;
-                  -moz-background-size: 100%;
-                  -o-background-size: 100%;
-                  background-size: 100%;"></div>
-                      <div class="bottom">
-                        <div class="left">
-                          <div class="details" style="padding: 7px; padding-top: 10px;">
-                            <h1 style="color:white; font-size: 15px">{{o.name}}</h1>
-                            <p style="color: white;">₹ {{o.price}}</p>
-                          </div>
-                          <div class="buy snipcart-add-item"
-  data-item-id="{{o.name}}"
-  data-item-price="{{o.price}}"
-  data-item-description="{{o.description}}"
-  data-item-image="{{o.image_url}}"
-  data-item-name="{{o.name}}" data-item-custom1-name="Size"
-  data-item-custom1-options="S|M|L|XL|XXL"><i class="material-icons">add_shopping_cart</i></div>
-                        </div>
-                        <div class="right">
-                          <div class="done"><i class="material-icons">done</i></div>
-                          <div class="details" style="padding: 15px; padding-top: 5px;">
-                            <h1>{{o.name}}</h1>
-                            <p style="font-size: medium;">Added to your cart</p>
-                          </div>
-                          <div class="remove"><i class="material-icons">clear</i></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="inside">
-                      <div class="icon"><i class="material-icons">info_outline</i></div>
-                      <div class="contents">
-                        <h4>{{o.description}}</h4>
-                      </div>
-                    </div>
-                  </div>
-            </div>
+<!--            <div class="card">-->
+<!--                <div class="wrapper" style="margin-left: 10px;">-->
+<!--                    <div class="container">-->
+<!--                      <div class="top" style="background: url('{{o.image_url}}') no-repeat center center; height: 80%;-->
+<!--                      width:100%; -->
+<!--                  -webkit-background-size: 100%;-->
+<!--                  -moz-background-size: 100%;-->
+<!--                  -o-background-size: 100%;-->
+<!--                  background-size: 100%;"></div>-->
+<!--                      <div class="bottom">-->
+<!--                        <div class="left">-->
+<!--                          <div class="details" style="padding: 7px; padding-top: 10px;">-->
+<!--                            <h1 style="color:white; font-size: 15px">{{o.name}}</h1>-->
+<!--                            <p style="color: white;">₹ {{o.price}}</p>-->
+<!--                          </div>-->
+<!--                          <div class="buy snipcart-add-item"-->
+<!--  data-item-id="{{o.name}}"-->
+<!--  data-item-price="{{o.price}}"-->
+<!--  data-item-description="{{o.description}}"-->
+<!--  data-item-image="{{o.image_url}}"-->
+<!--  data-item-name="{{o.name}}" data-item-custom1-name="Size"-->
+<!--  data-item-custom1-options="S|M|L|XL|XXL"><i class="material-icons">add_shopping_cart</i></div>-->
+<!--                        </div>-->
+<!--                        <div class="right">-->
+<!--                          <div class="done"><i class="material-icons">done</i></div>-->
+<!--                          <div class="details" style="padding: 15px; padding-top: 5px;">-->
+<!--                            <h1>{{o.name}}</h1>-->
+<!--                            <p style="font-size: medium;">Added to your cart</p>-->
+<!--                          </div>-->
+<!--                          <div class="remove"><i class="material-icons">clear</i></div>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="inside">-->
+<!--                      <div class="icon"><i class="material-icons">info_outline</i></div>-->
+<!--                      <div class="contents">-->
+<!--                        <h4>{{o.description}}</h4>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--            </div>-->
+                <a href="{{url_for('product_details',num=o.name)}}">
+                <figure>
+                    <img src="{{o.image_url}}" alt="Mountains">
+                    <figcaption>{{o.name}}</figcaption>
+                </figure>
+                </a>
             {% endfor %}
         </div>
     </section>

@@ -143,6 +143,10 @@ def add():
         return redirect('/')
     return render_template("new_prod.html", form=form)
 
+@app.route("/product-details/<num>")
+def product_details(num):
+    o = Product.query.filter_by(name=num).first()
+    return render_template("product.html",o=o)
 
 
 @app.route('/logout')
